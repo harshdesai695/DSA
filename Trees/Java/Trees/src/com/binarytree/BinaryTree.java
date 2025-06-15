@@ -87,4 +87,21 @@ public class BinaryTree {
     	
     }
     
+    public void MaxDepthOfBinaryTree() {
+    	System.out.println("\nHeight of Binary Tree:");
+    	System.out.println(" "+heightOfBinaryTree(root));
+    }
+    
+    public int heightOfBinaryTree(Node root) {
+    	if(root==null) {
+    		return 0;
+    	}
+    	
+    	int leftSubTree=heightOfBinaryTree(root.left);
+    	int rigthSubTree=heightOfBinaryTree(root.right);
+    	
+    	return 1+Math.max(leftSubTree,rigthSubTree);
+    	
+    }
+    
 }
