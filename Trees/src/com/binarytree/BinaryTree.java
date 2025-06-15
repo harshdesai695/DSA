@@ -131,5 +131,24 @@ public class BinaryTree {
 
 		return 1 + Math.max(left, right);
 	}
+	
+	//The diameter of a binary tree is the length of 
+	//the longest path between any two nodes in a tree
+	public void DiameterOfATree() {
+		System.out.println("Diameter of Tree:");
+		int dia=0;
+		System.out.println(diameterofTree(root,dia));
+	}
+	
+	public int diameterofTree(Node root,int dia) {
+		if (root == null) {
+			return 0;
+		}
 
+		int leftSubTree = diameterofTree(root.left,dia);
+		int rigthSubTree = diameterofTree(root.right,dia);
+		dia = Math.max(dia, (leftSubTree + rigthSubTree));
+		
+		return 1 + Math.max(leftSubTree, rigthSubTree);
+	}
 }
